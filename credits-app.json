@@ -8,7 +8,7 @@
         "properties": []
     },
     "components": [{
-        "name": "xyz-backend",
+        "name": "getScore-microservice",
         "description": "",
         "created": 1581926714561,
         "componentType": "STANDARD",
@@ -108,7 +108,7 @@
             }
         ]},
         "processes": [{
-            "name": "deploy2",
+            "name": "deploy",
             "description": "",
             "defaultWorkingDir": "${p:resource\/work.dir}\/${p:component.name}",
             "takesVersion": true,
@@ -122,6 +122,23 @@
             "rootActivity": {
                 "edges": [
                     {
+                        "to": "Download Artifacts",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Apply OCP YAMLs",
+                        "from": "List Files",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "List Files",
+                        "from": "Download Artifacts",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
                         "to": "074e17426ec39a4c80bc61b2f53891",
                         "from": "Check Deployment Status",
                         "type": "SUCCESS",
@@ -132,72 +149,55 @@
                         "from": "Apply OCP YAMLs",
                         "type": "SUCCESS",
                         "value": ""
-                    },
-                    {
-                        "to": "Apply OCP YAMLs",
-                        "from": "List Files",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Download Artifacts",
-                        "type": "ALWAYS",
-                        "value": ""
-                    },
-                    {
-                        "to": "List Files",
-                        "from": "Download Artifacts",
-                        "type": "SUCCESS",
-                        "value": ""
                     }
                 ],
                 "offsets": [
                     {
-                        "name": "Download Artifacts",
-                        "x": -145,
-                        "y": 150,
-                        "h": 110,
-                        "w": 440
-                    },
-                    {
-                        "name": "List Files",
-                        "x": -45,
-                        "y": 310,
-                        "h": 110,
-                        "w": 240
+                        "name": "Apply OCP YAMLs",
+                        "x": -90,
+                        "y": 440,
+                        "h": 100,
+                        "w": 320
                     },
                     {
                         "name": "Apply YAMLs-OLD",
-                        "x": -150,
-                        "y": 900,
-                        "h": 110,
-                        "w": 350
-                    },
-                    {
-                        "name": "Check Deployment Status",
-                        "x": -150,
-                        "y": 630,
-                        "h": 110,
-                        "w": 450
-                    },
-                    {
-                        "name": "Apply OCP YAMLs",
-                        "x": -100,
-                        "y": 470,
-                        "h": 110,
-                        "w": 350
+                        "x": -130,
+                        "y": 840,
+                        "h": 100,
+                        "w": 310
                     },
                     {
                         "name": "074e17426ec39a4c80bc61b2f53891",
                         "x": -5,
-                        "y": 790,
+                        "y": 740,
+                        "h": 90,
+                        "w": 150
+                    },
+                    {
+                        "name": "Download Artifacts",
+                        "x": -125,
+                        "y": 140,
                         "h": 100,
-                        "w": 160
+                        "w": 390
+                    },
+                    {
+                        "name": "Check Deployment Status",
+                        "x": -130,
+                        "y": 590,
+                        "h": 100,
+                        "w": 400
+                    },
+                    {
+                        "name": "List Files",
+                        "x": -40,
+                        "y": 290,
+                        "h": 100,
+                        "w": 220
                     }
                 ],
                 "layoutMode": "auto",
                 "type": "graph",
-                "name": "bfd493d1-6b89-495a-96ab-9206679e7966",
+                "name": "f511e841-eb76-4e9c-bd39-65bc1d3851a5",
                 "children": [
                     {
                         "type": "finish",
@@ -255,9 +255,9 @@
                             "filename": "busy-box-to-transfer-libs.yaml",
                             "flags": "",
                             "url": "https:\/\/c100-e.us-south.containers.cloud.ibm.com:32543\/",
-                            "username": "${p:environment\/ocp-dev-username}",
-                            "password": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|0NTTPGtk7+QUW101nxm8ig==|T9PAMT4csvDX1C1XgkSwS0CqA+ixhf24I0YJhuSviOz5tyjSOAlcwa8NvXuV9zFC}",
-                            "token": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|eCA0dzKvm3Hkv1MzODmP4A==|lFl1fEwOMnqfKTt3EZGwgg==}",
+                            "username": "${p:environment\/ocp-username}",
+                            "password": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|4QHk8FMQNDC6y7+wx8bR4g==|ZzchCHaVVYi8QPs+uebBzAG\/Wev4svO0GXqCOk3F8HY=}",
+                            "token": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|ldGY9n4h40GuQ\/axiNswpw==|EKW8CpH5HWRri+DNPxCiCg==}",
                             "insecure": "false",
                             "home": ""
                         },
@@ -341,7 +341,7 @@
                         "properties": {
                             "directoryOffset": ".",
                             "shellInterpreter": "",
-                            "scriptBody": "oc login -u ${p:environment\/ocp-dev-username} -p${p:environment\/ocp-dev-password}\noc create -f busy-box-to-transfer-libs.yaml",
+                            "scriptBody": "oc login -u ${p:environment\/ocp-username} -p${p:environment\/ocp-password}\noc create -f busy-box-to-transfer-libs.yaml",
                             "runAsDaemon": "false",
                             "outputFile": ""
                         },
@@ -386,11 +386,23 @@
                 {
                     "name": "ocp-dev-password",
                     "value": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|nUoCnL4DNPwUw1sa2UTpiQ==|ZfpXYdWyEdjzdyS7r2N2vTNPGqpJO82KpBliM38uJ0IV+sXx5OnZCTrHzYle2Kxw}",
-                    "description": "login credentials",
+                    "description": "old login credentials",
                     "secure": true
                 },
                 {
                     "name": "ocp-dev-username",
+                    "value": "apikey",
+                    "description": "old login credentials",
+                    "secure": false
+                },
+                {
+                    "name": "ocp-password",
+                    "value": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|Qmq7frS8ztcWyuj49EKMpQ==|cPWH5qFAEhBFLSeY1tUESdGUYAc2C6SIowYzMabc5JGHlxZrRc6DAE7A5siDXh3X}",
+                    "description": "login credentials",
+                    "secure": true
+                },
+                {
+                    "name": "ocp-username",
                     "value": "apikey",
                     "description": "login credentials",
                     "secure": false
@@ -469,14 +481,14 @@
                             "impersonationForce": false,
                             "prototype": false,
                             "children": [{
-                                "name": "xyz-backend",
-                                "path": "\/Fadin's Bank Openshift Cluster\/DEV\/web-backend\/agent-ibm-ucd-agent-0\/xyz-backend",
+                                "name": "getScore-microservice",
+                                "path": "\/Fadin's Bank Openshift Cluster\/DEV\/web-backend\/agent-ibm-ucd-agent-0\/getScore-microservice",
                                 "description": "",
                                 "parentName": "agent-ibm-ucd-agent-0",
                                 "inheritTeam": true,
-                                "roleName": "xyz-backend",
+                                "roleName": "getScore-microservice",
                                 "roleProperties": {
-                                    "name": "xyz-backend",
+                                    "name": "getScore-microservice",
                                     "properties": []
                                 },
                                 "propSheet": {
@@ -496,7 +508,7 @@
             }],
             "componentPropSheets": [{
                 "properties": [],
-                "componentName": "xyz-backend"
+                "componentName": "getScore-microservice"
             }],
             "teamMappings": []
         },
@@ -525,6 +537,18 @@
                 },
                 {
                     "name": "ocp-dev-username",
+                    "value": "apikey",
+                    "description": "",
+                    "secure": false
+                },
+                {
+                    "name": "ocp-password",
+                    "value": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|lvJUsDbe4MCmBaEWp8a5XQ==|va1R3uVRHZ7ZPrxtN3ULjaYovrphJY+bPM80nVdEiELWuVBKOQE6xdHJLmMTvRA3}",
+                    "description": "",
+                    "secure": true
+                },
+                {
+                    "name": "ocp-username",
                     "value": "apikey",
                     "description": "",
                     "secure": false
@@ -603,14 +627,14 @@
                             "impersonationForce": false,
                             "prototype": false,
                             "children": [{
-                                "name": "xyz-backend",
-                                "path": "\/Fadin's Bank Openshift Cluster\/TEST\/WEB-BACKEND\/agent-ibm-ucd-agent-0\/xyz-backend",
+                                "name": "getScore-microservice",
+                                "path": "\/Fadin's Bank Openshift Cluster\/TEST\/WEB-BACKEND\/agent-ibm-ucd-agent-0\/getScore-microservice",
                                 "description": "",
                                 "parentName": "agent-ibm-ucd-agent-0",
                                 "inheritTeam": true,
-                                "roleName": "xyz-backend",
+                                "roleName": "getScore-microservice",
                                 "roleProperties": {
-                                    "name": "xyz-backend",
+                                    "name": "getScore-microservice",
                                     "properties": []
                                 },
                                 "propSheet": {
@@ -630,7 +654,7 @@
             }],
             "componentPropSheets": [{
                 "properties": [],
-                "componentName": "xyz-backend"
+                "componentName": "getScore-microservice"
             }],
             "teamMappings": []
         },
@@ -659,7 +683,7 @@
             "baseResourcesFull": [],
             "componentPropSheets": [{
                 "properties": [],
-                "componentName": "xyz-backend"
+                "componentName": "getScore-microservice"
             }],
             "teamMappings": []
         }
@@ -672,36 +696,36 @@
         "rootActivity": {
             "edges": [
                 {
+                    "to": "a4d3677c4e053aa645d399118441c6",
+                    "type": "ALWAYS",
+                    "value": ""
+                },
+                {
                     "to": "242f26b1ced113ed75e3785d0c9096",
                     "from": "a4d3677c4e053aa645d399118441c6",
                     "type": "SUCCESS",
                     "value": ""
-                },
-                {
-                    "to": "a4d3677c4e053aa645d399118441c6",
-                    "type": "ALWAYS",
-                    "value": ""
                 }
             ],
             "offsets": [
-                {
-                    "name": "a4d3677c4e053aa645d399118441c6",
-                    "x": -65.02744839701379,
-                    "y": 229.59595959595958,
-                    "h": 70,
-                    "w": 230
-                },
                 {
                     "name": "242f26b1ced113ed75e3785d0c9096",
                     "x": -5,
                     "y": 420,
                     "h": 80,
                     "w": 120
+                },
+                {
+                    "name": "a4d3677c4e053aa645d399118441c6",
+                    "x": -65.02744839701379,
+                    "y": 229.59595959595958,
+                    "h": 80,
+                    "w": 290
                 }
             ],
             "layoutMode": "manual",
             "type": "graph",
-            "name": "759d6d1e-895a-4aa0-a8e2-abdccbf7544c",
+            "name": "53f1ff90-fef4-45dc-a0f6-96ff7d1339c4",
             "children": [
                 {
                     "type": "finish",
@@ -709,7 +733,7 @@
                     "children": []
                 },
                 {
-                    "componentName": "xyz-backend",
+                    "componentName": "getScore-microservice",
                     "properties": [
                         {
                             "name": "maxIteration",
@@ -727,18 +751,18 @@
                     "type": "componentEnvironmentIterator",
                     "name": "a4d3677c4e053aa645d399118441c6",
                     "children": [{
-                        "componentName": "xyz-backend",
+                        "componentName": "getScore-microservice",
                         "status": "Active",
                         "type": "inventoryVersionDiff",
-                        "name": "e87f37d8-d9a3-4af7-9071-31f90ba99144",
+                        "name": "fe87f502-7ab8-4742-9921-83da8fa2c0f8",
                         "children": [{
-                            "componentProcessName": "deploy2",
-                            "componentName": "xyz-backend",
+                            "componentProcessName": "deploy",
+                            "componentName": "getScore-microservice",
                             "allowFailure": false,
                             "properties": {"isIgnoreChildWarnings": "false"},
                             "draftProperties": {"isIgnoreChildWarnings": "false"},
                             "type": "componentProcess",
-                            "name": "Install: \"xyz-backend\"",
+                            "name": "Install: \"getScore-Microservice\"",
                             "children": []
                         }]
                     }]
