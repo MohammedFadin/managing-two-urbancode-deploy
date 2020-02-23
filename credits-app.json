@@ -1,0 +1,754 @@
+{
+    "name": "credits-app",
+    "description": "",
+    "enforceCompleteSnapshots": false,
+    "propSheet": {"properties": []},
+    "templatePropSheet": {
+        "name": "template",
+        "properties": []
+    },
+    "components": [{
+        "name": "xyz-backend",
+        "description": "",
+        "created": 1581926714561,
+        "componentType": "STANDARD",
+        "ignoreQualifiers": 0,
+        "importAutomatically": true,
+        "useVfs": true,
+        "active": true,
+        "deleted": false,
+        "defaultVersionType": "FULL",
+        "cleanupDaysToKeep": 0,
+        "cleanupCountToKeep": 0,
+        "sourceConfigPluginName": "Git",
+        "envPropDefs": [],
+        "resPropDefs": [],
+        "versionPropDefs": [],
+        "propSheetGroup": {"propSheets": [
+            {
+                "name": "GitComponentProperties",
+                "properties": [
+                    {
+                        "name": "branch",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "excludes",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "extensions",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "gitPath",
+                        "value": "git",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "includes",
+                        "value": "**\/*",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "password",
+                        "value": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|dhuhwtG9n+GHumrLmLxv6Q==|199azvtOb2l2z8CWg6Ob8w==}",
+                        "description": "",
+                        "secure": true
+                    },
+                    {
+                        "name": "recursive",
+                        "value": "false",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "repoUrl",
+                        "value": "https:\/\/github.com\/MohammedFadin\/busybox-openshift.git",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "saveFileExecuteBits",
+                        "value": "false",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "trustAllCerts",
+                        "value": "false",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "username",
+                        "description": "",
+                        "secure": false
+                    },
+                    {
+                        "name": "watchTags",
+                        "value": "false",
+                        "description": "",
+                        "secure": false
+                    }
+                ]
+            },
+            {
+                "name": "template",
+                "properties": []
+            },
+            {
+                "name": "custom",
+                "properties": []
+            }
+        ]},
+        "processes": [{
+            "name": "deploy2",
+            "description": "",
+            "defaultWorkingDir": "${p:resource\/work.dir}\/${p:component.name}",
+            "takesVersion": true,
+            "inventoryActionType": "ADD",
+            "status": "Active",
+            "configActionType": "ADD",
+            "active": true,
+            "path": "components\/170522e0-ccdc-7865-9ae4-ec5e821e49a0\/processes\/170523f5-9c88-304d-bbb0-f7f9e57782ad",
+            "deleted": false,
+            "propDefs": [],
+            "rootActivity": {
+                "edges": [
+                    {
+                        "to": "074e17426ec39a4c80bc61b2f53891",
+                        "from": "Check Deployment Status",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Check Deployment Status",
+                        "from": "Apply OCP YAMLs",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Apply OCP YAMLs",
+                        "from": "List Files",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Download Artifacts",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
+                        "to": "List Files",
+                        "from": "Download Artifacts",
+                        "type": "SUCCESS",
+                        "value": ""
+                    }
+                ],
+                "offsets": [
+                    {
+                        "name": "Download Artifacts",
+                        "x": -145,
+                        "y": 150,
+                        "h": 110,
+                        "w": 440
+                    },
+                    {
+                        "name": "List Files",
+                        "x": -45,
+                        "y": 310,
+                        "h": 110,
+                        "w": 240
+                    },
+                    {
+                        "name": "Apply YAMLs-OLD",
+                        "x": -150,
+                        "y": 900,
+                        "h": 110,
+                        "w": 350
+                    },
+                    {
+                        "name": "Check Deployment Status",
+                        "x": -150,
+                        "y": 630,
+                        "h": 110,
+                        "w": 450
+                    },
+                    {
+                        "name": "Apply OCP YAMLs",
+                        "x": -100,
+                        "y": 470,
+                        "h": 110,
+                        "w": 350
+                    },
+                    {
+                        "name": "074e17426ec39a4c80bc61b2f53891",
+                        "x": -5,
+                        "y": 790,
+                        "h": 100,
+                        "w": 160
+                    }
+                ],
+                "layoutMode": "auto",
+                "type": "graph",
+                "name": "bfd493d1-6b89-495a-96ab-9206679e7966",
+                "children": [
+                    {
+                        "type": "finish",
+                        "name": "074e17426ec39a4c80bc61b2f53891",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 31,
+                        "commandName": "Download Artifacts",
+                        "pluginName": "UrbanCode Deploy Versioned File Storage",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "directoryOffset": ".",
+                            "artifactSetBaseDir": "",
+                            "fileIncludePatterns": "**\/*",
+                            "fileExcludePatterns": "",
+                            "syncMode": "true",
+                            "fullVerification": "true",
+                            "setFileExecuteBits": "false",
+                            "verifyFileIntegrity": "false",
+                            "versionId": "${p:version.id}",
+                            "serverUrl": "${p:server.url}",
+                            "compId": "${p:component.id}",
+                            "resId": "${p:resource.id}",
+                            "charset": "",
+                            "label": ""
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Download Artifacts",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 15,
+                        "commandName": "Apply",
+                        "pluginName": "OpenShift",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "project": "devops",
+                            "filename": "busy-box-to-transfer-libs.yaml",
+                            "flags": "",
+                            "url": "https:\/\/c100-e.us-south.containers.cloud.ibm.com:32543\/",
+                            "username": "${p:environment\/ocp-dev-username}",
+                            "password": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|0NTTPGtk7+QUW101nxm8ig==|T9PAMT4csvDX1C1XgkSwS0CqA+ixhf24I0YJhuSviOz5tyjSOAlcwa8NvXuV9zFC}",
+                            "token": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|eCA0dzKvm3Hkv1MzODmP4A==|lFl1fEwOMnqfKTt3EZGwgg==}",
+                            "insecure": "false",
+                            "home": ""
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Apply YAMLs-OLD",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 9,
+                        "commandName": "Shell",
+                        "pluginName": "Shell",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "directoryOffset": ".",
+                            "shellInterpreter": "",
+                            "scriptBody": "ls .",
+                            "runAsDaemon": "false",
+                            "outputFile": ""
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "List Files",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 9,
+                        "commandName": "Shell",
+                        "pluginName": "Shell",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "directoryOffset": ".",
+                            "shellInterpreter": "",
+                            "scriptBody": "oc get pods -l name=busybox-app",
+                            "runAsDaemon": "false",
+                            "outputFile": ""
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Check Deployment Status",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 9,
+                        "commandName": "Shell",
+                        "pluginName": "Shell",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "directoryOffset": ".",
+                            "shellInterpreter": "",
+                            "scriptBody": "oc login -u ${p:environment\/ocp-dev-username} -p${p:environment\/ocp-dev-password}\noc create -f busy-box-to-transfer-libs.yaml",
+                            "runAsDaemon": "false",
+                            "outputFile": ""
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Apply OCP YAMLs",
+                        "children": []
+                    }
+                ]
+            }
+        }],
+        "configTemplates": [],
+        "genericProcesses": [],
+        "teamMappings": [],
+        "tags": []
+    }],
+    "environments": [
+        {
+            "name": "dev",
+            "description": "",
+            "color": "#DD731C",
+            "requireApprovals": false,
+            "noSelfApprovals": false,
+            "exemptProcesses": [],
+            "lockSnapshots": false,
+            "requireSnapshots": false,
+            "cleanupDaysToKeep": 0,
+            "cleanupCountToKeep": 0,
+            "enableProcessHistoryCleanup": true,
+            "useSystemDefaultDays": true,
+            "historyCleanupDaysToKeep": 365,
+            "order": 0,
+            "active": true,
+            "propSheet": {"properties": [
+                {
+                    "name": "ocp-dev-password",
+                    "value": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|nUoCnL4DNPwUw1sa2UTpiQ==|ZfpXYdWyEdjzdyS7r2N2vTNPGqpJO82KpBliM38uJ0IV+sXx5OnZCTrHzYle2Kxw}",
+                    "description": "login credentials",
+                    "secure": true
+                },
+                {
+                    "name": "ocp-dev-username",
+                    "value": "apikey",
+                    "description": "login credentials",
+                    "secure": false
+                }
+            ]},
+            "templatePropSheet": {
+                "name": "template",
+                "properties": []
+            },
+            "baseResources": [{
+                "basePath": "\/Fadin's Bank Openshift Cluster",
+                "tree": {
+                    "name": "DEV",
+                    "path": "\/Fadin's Bank Openshift Cluster\/DEV",
+                    "description": "",
+                    "parentName": "Fadin's Bank Openshift Cluster",
+                    "inheritTeam": true,
+                    "propSheet": {
+                        "name": "custom",
+                        "properties": []
+                    },
+                    "tags": [],
+                    "teamMappings": [],
+                    "impersonationUseSudo": false,
+                    "impersonationForce": false,
+                    "prototype": false
+                }
+            }],
+            "baseResourcesFull": [{
+                "basePath": "\/Fadin's Bank Openshift Cluster",
+                "tree": {
+                    "name": "DEV",
+                    "path": "\/Fadin's Bank Openshift Cluster\/DEV",
+                    "description": "",
+                    "parentName": "Fadin's Bank Openshift Cluster",
+                    "inheritTeam": true,
+                    "propSheet": {
+                        "name": "custom",
+                        "properties": []
+                    },
+                    "tags": [],
+                    "teamMappings": [],
+                    "impersonationUseSudo": false,
+                    "impersonationForce": false,
+                    "prototype": false,
+                    "children": [{
+                        "name": "web-backend",
+                        "path": "\/Fadin's Bank Openshift Cluster\/DEV\/web-backend",
+                        "description": "",
+                        "parentName": "DEV",
+                        "inheritTeam": true,
+                        "propSheet": {
+                            "name": "custom",
+                            "properties": []
+                        },
+                        "tags": [],
+                        "teamMappings": [],
+                        "impersonationUseSudo": false,
+                        "impersonationForce": false,
+                        "prototype": false,
+                        "children": [{
+                            "name": "agent-ibm-ucd-agent-0",
+                            "path": "\/Fadin's Bank Openshift Cluster\/DEV\/web-backend\/agent-ibm-ucd-agent-0",
+                            "description": "",
+                            "parentName": "web-backend",
+                            "inheritTeam": true,
+                            "type": "agent",
+                            "typeName": "agent-ibm-ucd-agent-0",
+                            "propSheet": {
+                                "name": "custom",
+                                "properties": []
+                            },
+                            "tags": [],
+                            "teamMappings": [],
+                            "impersonationUseSudo": false,
+                            "impersonationForce": false,
+                            "prototype": false,
+                            "children": [{
+                                "name": "xyz-backend",
+                                "path": "\/Fadin's Bank Openshift Cluster\/DEV\/web-backend\/agent-ibm-ucd-agent-0\/xyz-backend",
+                                "description": "",
+                                "parentName": "agent-ibm-ucd-agent-0",
+                                "inheritTeam": true,
+                                "roleName": "xyz-backend",
+                                "roleProperties": {
+                                    "name": "xyz-backend",
+                                    "properties": []
+                                },
+                                "propSheet": {
+                                    "name": "custom",
+                                    "properties": []
+                                },
+                                "tags": [],
+                                "teamMappings": [],
+                                "impersonationUseSudo": false,
+                                "impersonationForce": false,
+                                "prototype": false,
+                                "children": []
+                            }]
+                        }]
+                    }]
+                }
+            }],
+            "componentPropSheets": [{
+                "properties": [],
+                "componentName": "xyz-backend"
+            }],
+            "teamMappings": []
+        },
+        {
+            "name": "test",
+            "description": "",
+            "color": "#17AF4A",
+            "requireApprovals": false,
+            "noSelfApprovals": false,
+            "exemptProcesses": [],
+            "lockSnapshots": false,
+            "requireSnapshots": false,
+            "cleanupDaysToKeep": 0,
+            "cleanupCountToKeep": 0,
+            "enableProcessHistoryCleanup": true,
+            "useSystemDefaultDays": true,
+            "historyCleanupDaysToKeep": 365,
+            "order": 1,
+            "active": true,
+            "propSheet": {"properties": [
+                {
+                    "name": "ocp-dev-password",
+                    "value": "crypt_v1{AES\/CBC\/PKCS5Padding|aes128keyispj|Jlm9RMQTbhFj2gA29YK1ZQ==|nbm+KHeEOiNOMrZ0uU6sjlDarNazwrglSxQWEq8eZmqY7U1LzZaV\/2tE\/c2\/YayQ}",
+                    "description": "",
+                    "secure": true
+                },
+                {
+                    "name": "ocp-dev-username",
+                    "value": "apikey",
+                    "description": "",
+                    "secure": false
+                }
+            ]},
+            "templatePropSheet": {
+                "name": "template",
+                "properties": []
+            },
+            "baseResources": [{
+                "basePath": "\/Fadin's Bank Openshift Cluster",
+                "tree": {
+                    "name": "TEST",
+                    "path": "\/Fadin's Bank Openshift Cluster\/TEST",
+                    "description": "",
+                    "parentName": "Fadin's Bank Openshift Cluster",
+                    "inheritTeam": true,
+                    "propSheet": {
+                        "name": "custom",
+                        "properties": []
+                    },
+                    "tags": [],
+                    "teamMappings": [],
+                    "impersonationUseSudo": false,
+                    "impersonationForce": false,
+                    "prototype": false
+                }
+            }],
+            "baseResourcesFull": [{
+                "basePath": "\/Fadin's Bank Openshift Cluster",
+                "tree": {
+                    "name": "TEST",
+                    "path": "\/Fadin's Bank Openshift Cluster\/TEST",
+                    "description": "",
+                    "parentName": "Fadin's Bank Openshift Cluster",
+                    "inheritTeam": true,
+                    "propSheet": {
+                        "name": "custom",
+                        "properties": []
+                    },
+                    "tags": [],
+                    "teamMappings": [],
+                    "impersonationUseSudo": false,
+                    "impersonationForce": false,
+                    "prototype": false,
+                    "children": [{
+                        "name": "WEB-BACKEND",
+                        "path": "\/Fadin's Bank Openshift Cluster\/TEST\/WEB-BACKEND",
+                        "description": "",
+                        "parentName": "TEST",
+                        "inheritTeam": true,
+                        "propSheet": {
+                            "name": "custom",
+                            "properties": []
+                        },
+                        "tags": [],
+                        "teamMappings": [],
+                        "impersonationUseSudo": false,
+                        "impersonationForce": false,
+                        "prototype": false,
+                        "children": [{
+                            "name": "agent-ibm-ucd-agent-0",
+                            "path": "\/Fadin's Bank Openshift Cluster\/TEST\/WEB-BACKEND\/agent-ibm-ucd-agent-0",
+                            "description": "",
+                            "parentName": "WEB-BACKEND",
+                            "inheritTeam": true,
+                            "type": "agent",
+                            "typeName": "agent-ibm-ucd-agent-0",
+                            "propSheet": {
+                                "name": "custom",
+                                "properties": []
+                            },
+                            "tags": [],
+                            "teamMappings": [],
+                            "impersonationUseSudo": false,
+                            "impersonationForce": false,
+                            "prototype": false,
+                            "children": [{
+                                "name": "xyz-backend",
+                                "path": "\/Fadin's Bank Openshift Cluster\/TEST\/WEB-BACKEND\/agent-ibm-ucd-agent-0\/xyz-backend",
+                                "description": "",
+                                "parentName": "agent-ibm-ucd-agent-0",
+                                "inheritTeam": true,
+                                "roleName": "xyz-backend",
+                                "roleProperties": {
+                                    "name": "xyz-backend",
+                                    "properties": []
+                                },
+                                "propSheet": {
+                                    "name": "custom",
+                                    "properties": []
+                                },
+                                "tags": [],
+                                "teamMappings": [],
+                                "impersonationUseSudo": false,
+                                "impersonationForce": false,
+                                "prototype": false,
+                                "children": []
+                            }]
+                        }]
+                    }]
+                }
+            }],
+            "componentPropSheets": [{
+                "properties": [],
+                "componentName": "xyz-backend"
+            }],
+            "teamMappings": []
+        },
+        {
+            "name": "prod",
+            "description": "",
+            "color": "#D9182D",
+            "requireApprovals": false,
+            "noSelfApprovals": false,
+            "exemptProcesses": [],
+            "lockSnapshots": false,
+            "requireSnapshots": false,
+            "cleanupDaysToKeep": 0,
+            "cleanupCountToKeep": 0,
+            "enableProcessHistoryCleanup": true,
+            "useSystemDefaultDays": true,
+            "historyCleanupDaysToKeep": 365,
+            "order": 2,
+            "active": true,
+            "propSheet": {"properties": []},
+            "templatePropSheet": {
+                "name": "template",
+                "properties": []
+            },
+            "baseResources": [],
+            "baseResourcesFull": [],
+            "componentPropSheets": [{
+                "properties": [],
+                "componentName": "xyz-backend"
+            }],
+            "teamMappings": []
+        }
+    ],
+    "processes": [{
+        "name": "deploy",
+        "description": "",
+        "inventoryManagementType": "AUTOMATIC",
+        "offlineAgentHandling": "PRE_EXECUTION_CHECK",
+        "rootActivity": {
+            "edges": [
+                {
+                    "to": "242f26b1ced113ed75e3785d0c9096",
+                    "from": "a4d3677c4e053aa645d399118441c6",
+                    "type": "SUCCESS",
+                    "value": ""
+                },
+                {
+                    "to": "a4d3677c4e053aa645d399118441c6",
+                    "type": "ALWAYS",
+                    "value": ""
+                }
+            ],
+            "offsets": [
+                {
+                    "name": "a4d3677c4e053aa645d399118441c6",
+                    "x": -65.02744839701379,
+                    "y": 229.59595959595958,
+                    "h": 70,
+                    "w": 230
+                },
+                {
+                    "name": "242f26b1ced113ed75e3785d0c9096",
+                    "x": -5,
+                    "y": 420,
+                    "h": 80,
+                    "w": 120
+                }
+            ],
+            "layoutMode": "manual",
+            "type": "graph",
+            "name": "759d6d1e-895a-4aa0-a8e2-abdccbf7544c",
+            "children": [
+                {
+                    "type": "finish",
+                    "name": "242f26b1ced113ed75e3785d0c9096",
+                    "children": []
+                },
+                {
+                    "componentName": "xyz-backend",
+                    "properties": [
+                        {
+                            "name": "maxIteration",
+                            "value": "-1"
+                        },
+                        {
+                            "name": "isIgnoreChildWarnings",
+                            "value": "false"
+                        },
+                        {
+                            "name": "failFast",
+                            "value": "false"
+                        }
+                    ],
+                    "type": "componentEnvironmentIterator",
+                    "name": "a4d3677c4e053aa645d399118441c6",
+                    "children": [{
+                        "componentName": "xyz-backend",
+                        "status": "Active",
+                        "type": "inventoryVersionDiff",
+                        "name": "e87f37d8-d9a3-4af7-9071-31f90ba99144",
+                        "children": [{
+                            "componentProcessName": "deploy2",
+                            "componentName": "xyz-backend",
+                            "allowFailure": false,
+                            "properties": {"isIgnoreChildWarnings": "false"},
+                            "draftProperties": {"isIgnoreChildWarnings": "false"},
+                            "type": "componentProcess",
+                            "name": "Install: \"xyz-backend\"",
+                            "children": []
+                        }]
+                    }]
+                }
+            ]
+        },
+        "propDefs": [],
+        "versionPresets": []
+    }],
+    "genericProcesses": [],
+    "teamMappings": [],
+    "tags": []
+}
